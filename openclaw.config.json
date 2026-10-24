@@ -1,0 +1,57 @@
+{
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "claude": {
+        "baseUrl": "http://127.0.0.1:8001/v1",
+        "apiKey": "claude-local",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "claude-sonnet-5-5",
+            "name": "Claude Sonnet 5.5 (Claude Gateway)",
+            "contextWindow": 200000,
+            "maxTokens": 64000,
+            "reasoning": true
+          },
+          {
+            "id": "claude-opus-5-5",
+            "name": "Claude Opus 5.5 (Claude Gateway)",
+            "contextWindow": 200000,
+            "maxTokens": 64000,
+            "reasoning": true
+          },
+          {
+            "id": "claude-haiku-5-5",
+            "name": "Claude Haiku 5.5 (Claude Gateway)",
+            "contextWindow": 200000,
+            "maxTokens": 64000
+          },
+          {
+            "id": "claude-fable-5-1",
+            "name": "Claude Fable 5.1 (Claude Gateway)",
+            "contextWindow": 200000,
+            "maxTokens": 64000,
+            "reasoning": true
+          },
+          {
+            "id": "claude-default",
+            "name": "Claude Default (Gateway Default Model)",
+            "contextWindow": 200000,
+            "maxTokens": 64000,
+            "reasoning": true
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "models": {
+        "claude/claude-sonnet-5-5": {
+          "alias": "claude"
+        }
+      }
+    }
+  }
+}

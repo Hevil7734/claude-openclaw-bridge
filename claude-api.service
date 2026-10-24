@@ -1,0 +1,21 @@
+[Unit]
+Description=Claude Code CLI to OpenAI API Gateway for OpenClaw
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Projects/claude-openclaw-bridge
+ExecStart=/usr/bin/python3 %h/Projects/claude-openclaw-bridge/server.py
+Restart=always
+RestartSec=3
+Environment=PYTHONUNBUFFERED=1
+Environment=CLAUDE_GW_HOST=127.0.0.1
+Environment=CLAUDE_GW_PORT=8001
+Environment=CLAUDE_GW_DEFAULT_MODEL=claude-sonnet-5-5
+Environment=CLAUDE_GW_WORKSPACE_DIR=/tmp/claude-gateway
+Environment=CLAUDE_GW_TIMEOUT=300
+Environment=CLAUDE_GW_MAX_CONCURRENCY=4
+Environment=CLAUDE_GW_POOL_DISPATCH_MODE=least_busy
+
+[Install]
+WantedBy=default.target
